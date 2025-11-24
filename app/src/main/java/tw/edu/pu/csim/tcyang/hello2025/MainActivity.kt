@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -20,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import tw.edu.pu.csim.tcyang.hello2025.ui.theme.Hello2025Theme
@@ -44,10 +47,10 @@ fun UserScoreScreen( userScoreViewModel: UserScoreViewModel = viewModel()
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var user by remember { mutableStateOf("") }
+        var user = userScoreViewModel.user
         TextField(
             value = user,
-            onValueChange = { user = it },
+            onValueChange = { userScoreViewModel.onUserChange(it)},
             label = { Text("姓名") },
             placeholder = { Text("請輸入您的姓名") }
         )
@@ -75,5 +78,17 @@ fun UserScoreScreen( userScoreViewModel: UserScoreViewModel = viewModel()
     }) {
         Text("查詢分數")
     }
+    var score by remember { mutableStateOf("") }
+    OutlinedTextField(
+        value = score,
+        onValueChange = { score = it },
+        label = { Text("分數") },
+        placeholder = { Text("請輸入您的分數") },
+        keyboardOptions = KeyboardOptions
+            (keyboardType = KeyboardType.Number)
+    )
+    Text("您的分數是：$score")
+    Spacer(modifier = Modifier.size(10.dp))
+
 
 }

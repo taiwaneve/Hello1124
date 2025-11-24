@@ -13,6 +13,8 @@ class UserScoreViewModel : ViewModel() {
 
     var message by mutableStateOf("訊息")
         private set
+    var user by mutableStateOf("")
+        private set // 讓狀態只能在 ViewModel 內部被修改
 
     fun updateUser(userScore: UserScoreModel) {
         // 在 viewModelScope 中啟動一個協程
@@ -30,6 +32,7 @@ class UserScoreViewModel : ViewModel() {
         viewModelScope.launch {
             message = userScoreRepository.getUserScoreByName(name)
         }
+    }fun onUserChange(newUser: String) {
+        user = newUser
     }
-
 }
