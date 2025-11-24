@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "258325825070",
+    "project_id": "test-5260c",
+    "storage_bucket": "test-5260c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258325825070:android:9540986ea092538643c1bf",
+        "android_client_info": {
+          "package_name": "tw.edu.pu.csim.tcyang.hello2025"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAYSgH_V004KFziafgUpBhOvHqm4BhcVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
