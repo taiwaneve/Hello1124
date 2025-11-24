@@ -10,3 +10,4 @@ data class UserScoreModel(
     @ServerTimestamp
     var timestamp: Date? = null
 )
+

@@ -5,6 +5,7 @@ import kotlinx.coroutines.tasks.await
 class UserScoreRepository {
     val db = Firebase.firestore
 
+
     suspend fun addUser(userScore: UserScoreModel): String {
         return try {
             val documentReference =
